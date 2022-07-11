@@ -1,0 +1,9 @@
+exports.contractAddress = "0x6D8dE8c407B42C663C2A1082eCd43F8AC90587cB";
+
+exports.whitelist = {
+  3: [
+    "0x8fEf99323B38eed8F91A75e713d6127e736d886A",
+    "0x003dc4650c348a105d0c9d50519db988dda3d032",
+  ],
+  2: ["0xFd3edd58f90F18663F311941F00c465F0d6e8A57"],
+};
