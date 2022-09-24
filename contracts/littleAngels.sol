@@ -12,7 +12,7 @@ import "@openzeppelin/contracts/utils/Address.sol";
 import './lib/Ownable.sol';
 
 
-contract NFTProject is ERC721, Pausable ,Ownable{
+contract LittleAngels is ERC721, Pausable ,Ownable{
 
     using Address for address payable;
     using Counters for Counters.Counter;

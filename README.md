@@ -1,62 +1,48 @@
+# NFT Project with hardhat
 
+This NFT contract is written with solidity programming language, and configured with hardhat environment for deployment, debug, test and verify.
 
-Here I documented all the API's I tested and the result will be in the json file named as result:*  bellow
+## some of the outstanding features of this nft contract.
 
+- Has an off chain whitelist functionality with signing a message and getting signatures
+- Tried to use less deployment gas.
+- Tried to follow the best practices
 
-Note: For all POST request we need to add this Auth:
- Authorization: Barear eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiZmMzZWFkYTYtNDdhZS00NzRlLThjN2ItMGE3OWUxMDdlYWQyIiwiYXVkIjpbImZhc3RhcGktdXNlcnM6YXV0aCIsImZhc3RhcGktdXNlcnM6dmVyaWZ5Il19.IEZRCKZBFa_iHf5tT1loxY5t52NgIrwBg85eyxOyuqw
+### How to use it!
 
-**Block API**
-<br>
-1.***getting the latest block***
-    End Point :https://api.quantor.me/v1/eth/block/meta/latest_block?require_active=true
-    <br>
-    Method : POST
-    <br>
-    result:recentBlock.json
+1. `clone the repo`
+2. `cd NFTContract`
+3. `yarn` or `npm i`
+4. `create an .env file in the root directory as .env.example`
 
-**CONTRACT_API**
-<br>
-1. ***getting the price of a token /tokens***
-    1. **with time rage**
-    End Point : https://api.quantor.me/v1/eth/contract/erc20/prices/time_range?contract_address=0xC18360217D8F7AB5E7C516566761EA12CE7F9D72&limit=10000&after=1&before=1660820292449&granularity=day
-    <br>
-    Method : POST
-    <br>
-    result:priceBlock.json
+### How to compile, deploy, verify and test using hardhat
 
+#### compile
 
-    1. **with_blockNumber**
-       End Point : https://api.quantor.me/v1/eth/contract/erc20/prices/addresses_and_block?currency=usd&block_number=15408567&limit=10
-       <br>
-       Method : POST
-       <br>
-       body:`{
-              "addresses": [
-                "0xC18360217D8F7AB5E7C516566761EA12CE7F9D72",
-                "0xdAC17F958D2ee523a2206206994597C13D831ec7"
-              ]
-            }`
-       <br>
-       result:priceRage.json
+`npx hardhat compile`
 
+#### deploy
 
+You should have the provider url and the account private key in .env file <br>
+`npx hardhat run ./scripts/deploy.js --network networkName`
 
+#### verify on etherscan
 
+You should have etherscan key in .env file <br>
+`npx hardhat verify --network networkName CONTRACT_ADDRESS "ARGUMENT NUM1" "ARGUMENT NUM2"`
 
-**WALLET_API**
+#### test
+For testing simply type bellow command:
+`npx hardhat test --network networkName`
 
-***1. getting all tokens of wallet***
-<br>
- Ex: getting tokens of vitalik.eth wallet
- End Point: https://api.quantor.me/v1/eth/wallet/erc20/pnl/by_token?wallet_address=0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045&currency=usd&require_active=true
- <br>
-result:walletTokens.json
+### How to generate the whitelist signatures!
 
+1. I have written a `whitelist.js` file and you should put your deployed contract address with number of NFT you want to give permission to that address there!
+2. run this script <br> `npx hardhat run ./scripts/generateWhiteList.js --network networkName`
+   **Note: This will sign a message with signer account, person wants to be whitelisted account and the max whitelist number**
+3. now you can pass the signature to the `whiteListMint` with max whitelist number.<br> ( `await ethersContract.whiteListMint(amount,maxWLNumber,signature)`)
 
+### An example of this contract on etherscan
 
-
-
-
-
-
+[LINK TO ETHERSCAN](https://rinkeby.etherscan.io/address/0x762f28A319b7490171bdDe69ba9c1554691e35B8)
+# nft-contract
