@@ -13,7 +13,7 @@ module.exports = {
       allowUnlimitedContractSize: true,
     },
     rinkeby: {
-      url: process.env.PROVIDER_RINKEBY,
+      url: process.env.PROVIDER_GOERLI,
       accounts: [process.env.PRIVATE_KEY],
     },
     // mainnet: {

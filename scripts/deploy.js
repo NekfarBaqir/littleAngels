@@ -1,21 +1,12 @@
 const hre = require("hardhat");
 
 async function main() {
-  const NFT = await hre.ethers.getContractFactory("NFTProject");
-  const SelectedMintNFT = await hre.ethers.getContractFactory(
-    "NFTSelectiveMint"
-  );
+  const NFT = await hre.ethers.getContractFactory("LittleAngels");
   const nft = await NFT.deploy("CodeGiantNFT", "CGN");
-  const selectedMintNft = await SelectedMintNFT.deploy(
-    "CodeGiantNFTWithId",
-    "CGNWID"
-  );
 
   await nft.deployed();
-  await selectedMintNft.deployed();
 
   console.log("NFT deployed to:", nft.address);
-  console.log("selectedMintNft deployed to:", selectedMintNft.address);
 }
 
 
