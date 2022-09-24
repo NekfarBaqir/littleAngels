@@ -1,7 +1,6 @@
 require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-etherscan");
-require('dotenv').config();
-
+require("dotenv").config();
 
 module.exports = {
   solidity: "0.8.0",
@@ -12,7 +11,7 @@ module.exports = {
     hardhat: {
       allowUnlimitedContractSize: true,
     },
-    rinkeby: {
+    goerli: {
       url: process.env.PROVIDER_GOERLI,
       accounts: [process.env.PRIVATE_KEY],
     },
@@ -51,3 +50,6 @@ module.exports = {
     apiKey: process.env.ETHERSCAN_KEY,
   },
 };
+
+
+// 0xbf925D6eC23d7cA2c6d4D96dfE22f6B7876454D1

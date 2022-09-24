@@ -2,7 +2,7 @@ const hre = require("hardhat");
 
 async function main() {
   const NFT = await hre.ethers.getContractFactory("LittleAngels");
-  const nft = await NFT.deploy("CodeGiantNFT", "CGN");
+  const nft = await NFT.deploy("LittleAngels", "LAS");
 
   await nft.deployed();
 
@@ -17,5 +17,4 @@ main()
     process.exit(1);
   });
 
-// Noraml NFT 0xddDF453957b6588C7508993d5c2d009120eCBA9D
-// selectedId NFT  0x52Bc577ABE9FC56945479083D983B89B2374986C
+// Noraml NFT 0x9eDC1B6aAd9E36E4eb56061eF0875508c4047682

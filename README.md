@@ -32,6 +32,7 @@ You should have etherscan key in .env file <br>
 `npx hardhat verify --network networkName CONTRACT_ADDRESS "ARGUMENT NUM1" "ARGUMENT NUM2"`
 
 #### test
+
 For testing simply type bellow command:
 `npx hardhat test --network networkName`
 
@@ -42,7 +43,8 @@ For testing simply type bellow command:
    **Note: This will sign a message with signer account, person wants to be whitelisted account and the max whitelist number**
 3. now you can pass the signature to the `whiteListMint` with max whitelist number.<br> ( `await ethersContract.whiteListMint(amount,maxWLNumber,signature)`)
 
-### An example of this contract on etherscan
+### An example of this contract on etherscan (goerli testnet)
 
-[LINK TO ETHERSCAN](https://rinkeby.etherscan.io/address/0x762f28A319b7490171bdDe69ba9c1554691e35B8)
+[LINK TO ETHERSCAN](https://goerli.etherscan.io/address/0x9eDC1B6aAd9E36E4eb56061eF0875508c4047682#code)
+
 # nft-contract
